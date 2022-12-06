@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseMigrationSettings">
+    <database-infos>
+      <database-info>
+        <dbms-id>mysql</dbms-id>
+        <mapping-types>
+          <mapping-type sql-type-parameter="Length">
+            <java-class>java.lang.String</java-class>
+            <sql-type>varchar</sql-type>
+          </mapping-type>
+        </mapping-types>
+      </database-info>
+      <database-info>
+        <dbms-id>maria</dbms-id>
+        <mapping-types>
+          <mapping-type sql-type-parameter="Nothing">
+            <java-class>java.lang.String</java-class>
+            <sql-type>varchar(100)</sql-type>
+          </mapping-type>
+        </mapping-types>
+      </database-info>
+    </database-infos>
+  </component>
+  <component name="JpaLiquibaseChangesConfig">
+    <exclude-change idName="medicos#bairro" tagName="modifyDataType" />
+    <exclude-change idName="medicos#cep" tagName="modifyDataType" />
+    <exclude-change idName="medicos#cidade" tagName="modifyDataType" />
+    <exclude-change idName="medicos#complemento" tagName="modifyDataType" />
+    <exclude-change idName="medicos#crm" tagName="modifyDataType" />
+    <exclude-change idName="medicos#email" tagName="modifyDataType" />
+    <exclude-change idName="medicos#logradouro" tagName="modifyDataType" />
+    <exclude-change idName="medicos#nome" tagName="modifyDataType" />
+    <exclude-change idName="medicos#numero" tagName="modifyDataType" />
+    <exclude-change idName="medicos#uf" tagName="modifyDataType" />
+  </component>
+  <component name="JpaPluginProjectSettings" reExcludeTablePrefixes="" reExcludeColumnPrefixes="" />
+  <component name="ReverseEngineeringSettings">
+    <database-infos>
+      <database-info dbms-id="mysql">
+        <mapping-types>
+          <mapping-type sql-type="VARCHAR(100)" java-class="java.lang.String" />
+        </mapping-types>
+      </database-info>
+    </database-infos>
+  </component>
+</project>
