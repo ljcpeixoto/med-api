@@ -2,6 +2,7 @@ package com.ljpeixoto.med.api.controller;
 
 import com.ljpeixoto.med.api.medico.*;
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,4 +34,11 @@ public class MedicoController {
         var medico = repository.getReferenceById(dadosAtualizacaoMedico.id());
         medico.atualizarInformacoes(dadosAtualizacaoMedico);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathParam("id") Long id) {
+        repository.deleteById(id);
+    }
+
 }
