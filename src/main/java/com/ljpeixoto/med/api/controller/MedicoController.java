@@ -1,9 +1,6 @@
 package com.ljpeixoto.med.api.controller;
 
-import com.ljpeixoto.med.api.medico.DadosCadastroMedico;
-import com.ljpeixoto.med.api.medico.DadosListagemMedico;
-import com.ljpeixoto.med.api.medico.Medico;
-import com.ljpeixoto.med.api.medico.MedicoRepository;
+import com.ljpeixoto.med.api.medico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,5 +25,12 @@ public class MedicoController {
     @GetMapping
     public Page<DadosListagemMedico> listar(@PageableDefault(size = 5, sort = {"nome"}) Pageable paginacao) {
         return repository.findAll(paginacao).map(DadosListagemMedico::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dadosAtualizacaoMedico) {
+        var medico = repository.getReferenceById(dadosAtualizacaoMedico.id());
+        medico.atualizarInformacoes(dadosAtualizacaoMedico);
     }
 }
